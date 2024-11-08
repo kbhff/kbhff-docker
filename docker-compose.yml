@@ -1,0 +1,29 @@
+services:
+  web:
+    image: parentnode/php-8.2-apache:latest
+    volumes:
+      - ${PROJECT_PATH}/apache:/etc/apache2/sites-enabled
+      - ${PROJECT_PATH}:/srv/sites/kbhff/kbhff_dk
+      - ./logs:/srv/sites/apache/logs
+      - ./conf/ssl:/srv/sites/apache/ssl
+    depends_on:
+      - mariadb
+      - redis
+    extra_hosts:
+        - 'kbhff.local:127.0.0.1'
+    network_mode: host
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'not_very_secret'
+    command: '--skip-grant-tables'
+    volumes:
+      - ./db:/var/lib/mysql
+    ports:
+      - '127.0.0.1:3306:3306'
+  redis:
+    image: redis:latest
+    restart: always
+    ports: 
+      - '127.0.0.1:6379:6379'
