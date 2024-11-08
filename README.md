@@ -23,15 +23,18 @@ It contains database login info that matches the credentials in the docker setup
 For testing all features, including mail sending and payments, contact it@kbhff.dk to obtain test credentials for mails and payments, and copy the connect_mail.php and connect_payment.php files to kbhff_dk/theme/config/ as well. Then update the credentials in those files with the valid test credentials.
 
 
-4: Then use the following command to start container stack:
+4: Unpack the library.tag.gz file from ./conf to kbhff_dk/theme. I contains images related to the dataset you will be importing in step 6.
+
+
+5: Then use the following command to start container stack:
 PROJECT_PATH=/#PATH-TO-CLONED-REPOS#/kbhff_dk docker compose up -d
 
 
-5: When the container has started, you should be able to connect to the database on 127.0.0.1:3306 using a standard database tool/viewer. Create a kbhff_dk database and import the dataset you find in conf/kbhff_dk.
+6: When the container has started, you should be able to connect to the database on 127.0.0.1:3306 using a standard database tool/viewer. Create a kbhff_dk database and import the dataset you find in conf/kbhff_dk.
 
 This gives you a base dataset to start with, including a dummy user with valid login credentials:
 dev@kbhff.dk / localpass
 
 
-6: Go to http://kbhff.local in your browser and have fun contributing to something meaningful :-)
+7: Go to http://kbhff.local in your browser and have fun contributing to something meaningful :-)
 
