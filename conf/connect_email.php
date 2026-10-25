@@ -5,7 +5,7 @@
 *
 * @package Config
 */
-define("ADMIN_EMAIL", "martin@think.dk");
+define("ADMIN_EMAIL", "---PUT YOUR EMAIL HERE---");
 
 $this->mail_connection(
 	array(
